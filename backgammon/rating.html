@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ratings.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header-container">
+        <div class="logo">
+          <img src="./images/logo.png" alt="BACKGAMON LOGO" />
+        </div>
+        <div class="banner">
+          <img src="./images/banner.png" alt="ITS A BANNNEEEER" />
+        </div>
+        <div class="login-form">
+          <form>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <div class="button-container">
+              <button type="submit" class="login-btn">Login</button>
+              <button type="button" class="signup-btn">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li class="main-nav">Home</li>
+          <li>
+            <span class="dropbtn">Blog</span>
+            <div class="dropdown-content">
+              <a href="#">Blog guidelines</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Join</span>
+            <div class="dropdown-content">
+              <a href="#">Benefits</a>
+              <a href="#">Apply to join</a>
+              <a href="#">Youth Registration</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Events</span>
+            <div class="dropdown-content">
+              <a href="#">Rules and Code of Conduct</a>
+              <a href="#">Forums</a>
+              <a href="#">Books</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Resources</span>
+            <div class="dropdown-content">
+              <a href="#">Rules and Code of Conduct</a>
+              <a href="#">Forums</a>
+              <a href="#">Books</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Members</span>
+            <div class="dropdown-content">
+              <a href="#">Data Privacy and Protetction Policy</a>
+              <a href="#">Membership Account</a>
+              <a href="#">Recorded Matches</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Clubs</span>
+            <div class="dropdown-content">
+              <a href="#">Backgammon Clubs</a>
+              <a href="#">Would like to Meet...</a>
+              <a href="#">Starting a Club</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">Ratings</span>
+            <div class="dropdown-content">
+              <a href="#">Live Ratings</a>
+              <a href="#">Online Ratings</a>
+              <a href="#">UKBGF Top 100</a>
+            </div>
+          </li>
+          <li>
+            <span class="dropbtn">About</span>
+            <div class="dropdown-content">
+              <a href="#">What is The UKBGF</a>
+              <a href="#">Contact Us</a>
+              <a href="#">Insurance Policy</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="rating-container">
+        <div class="rating-content">
+          <div class="image">
+            <img src="./images/winner.png" alt="" />
+          </div>
+
+          <div class="player-table-info">
+            <span class="player-info-text"
+              >Player Name Surname:
+              <span class="player-name">Bishkek Makhunjan</span></span
+            >
+            <div class="player-stats">
+              <div class="left">
+                <div class="object">ასაკი:</div>
+                <div class="object">ხარისხი/თანრიგი:</div>
+                <div class="object">რეიტინგი:</div>
+                <svg viewBox="0 0 300 100" class="chart">
+                  <path
+                    id="graph-path"
+                    d="M10 90 L50 70 L90 80 L130 60 L170 70 L210 80 L250 30 L290 70"
+                    fill="none"
+                  />
+                </svg>
+              </div>
+
+              <div class="right">
+                <div class="object">მატჩების რაოდენობა:</div>
+                <div class="object">მოგება:</div>
+                <div class="object">წაგება:</div>
+                <div class="object">Win Rate(%):</div>
+                <div class="win-rate-container">
+                  <div class="win-text">42.86</div>
+                  <div class="lose-text">57.14</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-container-news">
+        <button class="news-box-header-btn-main">მატჩები</button>
+        <button class="news-box-header-btn-achievements">მიღწევები/ტიტულები</button>
+        <button class="news-box-header-btn">რეიტინგი</button>
+        <button class="news-box-header-btn-toggle">ურთიერთშეხვედრები</button>
+        <button class="news-box-header-btn">ფოტო გალერეა</button>
+        <button class="news-box-header-btn">ვიდეო გალერეა</button>
+      </div>
+      <div class="news-box">
+        <div class="tournament" id="tournaments">
+          <p class="tournament-list">Tournaments</p>
+          <table id="tournamentTable">
+            <thead>
+                <tr>
+                    <td class="tournament-title"><span>Date</span></td>
+                    <td class="tournament-title"><span>Tournament Name</span></td>
+                    <td class="tournament-title"><span>Org.</span></td>
+                    <td class="tournament-title"><span>Tournament Place</span></td>
+                    <td class="tournament-title"><span>Event Address</span></td>
+                    <td class="tournament-title"><span>Players</span></td>
+                    <td class="tournament-title"><span>System</span></td>
+                    <td class="tournament-title"><span>Rounds</span></td>
+                    <td class="tournament-title"><span>Status</span></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td class="tournament-data"><span>5-10 Nov 2024</span></td>
+                    <td class="tournament-data">
+                        <span><a href="#">11th Merit International Open</a></span>
+                    </td>
+                    <td class="tournament-data"><span>WBF</span></td>
+                    <td class="tournament-data">
+                        <span>Kyrenia, North Cyprus</span>
+                    </td>
+                    <td class="tournament-data"><span>Merit Park Hotel</span></td>
+                    <td class="tournament-data"><span>518</span></td>
+                    <td class="tournament-data"><span>DE</span></td>
+                    <td class="tournament-data"><span>15</span></td>
+                    <td class="tournament-data"><span>ACTIVE</span></td>
+                </tr>
+            </tbody>
+        </table>
+          <div class="pagination-container">
+            <!-- Pagination numbers will be generated dynamically -->
+        </div>
+        </div>
+        <div class="match" id="match">
+          <span class="match-list">
+            <p>Matches</p>
+          </span>
+          <table id="matchTable">
+            <thead class="match-table">
+            <tr>
+              <td class="match-title"><span>Date</span></td>
+              <td class="match-title"><span>Tournament Name</span></td>
+              <td class="match-title"><span>R.</span></td>
+              <td class="match-title"><span>Flag</span></td>
+              <td class="match-title"><span>Name 1</span></td>
+              <td class="match-title"><span>Score</span></td>
+              <td class="match-title"><span>Name 2</span></td>
+              <td class="match-title"><span>Flag</span></td>
+              <td class="match-title"><span>old rating</span></td>
+              <td class="match-title"><span>old Exp</span></td>
+              <td class="match-title"><span>new rating</span></td>
+              <td class="match-title"><span>new Exp</span></td>
+            </tr>
+          </thead>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="match-data"><span>5-10 Nov 2024</span></td>
+              <td class="match-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="match-data"><span>1</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>KEMAL RAGACA</span></td>
+              <td class="match-data"><span>10:5</span></td>
+              <td class="match-data"><span>APLACHINO RAGACA</span></td>
+              <td class="match-data"><span></span></td>
+              <td class="match-data"><span>1687.32</span></td>
+              <td class="match-data"><span>6438</span></td>
+              <td class="match-data"><span>1691.55</span></td>
+              <td class="match-data"><span>7447</span></td>
+            </tr>
+          </table>
+          <div class="pagination-container-match"></div>
+        </div>
+
+        <div class="h2h" id="h2h">
+          <span class="h2h-list">
+            <p>Head To Head</p>
+          </span>
+          <div class="h2h-stat">
+            <div class="h2h-player-table">
+            <div class="h2h-players">
+              <span class="player1">KEMAL ERDEM</span>
+              <span class="match-score">9:2</span>
+              <span class="player2">ALPAY AKYO</span>
+            </div>
+          <table>
+            <thead class="h2h-table">
+            <tr>
+              <td class="h2h-title"><span>Date</span></td>
+              <td class="h2h-title"><span>Tournament Name</span></td>
+              <td class="h2h-title"><span>R.</span></td>
+              <td class="h2h-title"><span>Flag</span></td>
+              <td class="h2h-title"><span>Name 1</span></td>
+              <td class="h2h-title"><span>Score</span></td>
+              <td class="h2h-title"><span>Name 2</span></td>
+              <td class="h2h-title"><span>Flag</span></td>
+              <td class="h2h-title"><span>old rating</span></td>
+              <td class="h2h-title"><span>old Exp</span></td>
+              <td class="h2h-title"><span>new rating</span></td>
+              <td class="h2h-title"><span>new Exp</span></td>
+            </tr>
+          </thead>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>    
+          </table>
+        </div>
+        
+        <div class="h2h-player-table">
+          <div class="h2h-players">
+            <span class="player1">KEMAL ERDEM</span>
+            <span class="match-score">9:2</span>
+            <span class="player2">ALPAY AKYO</span>
+          </div>
+          <table>
+            <thead class="h2h-table">
+            <tr>
+              <td class="h2h-title"><span>Date</span></td>
+              <td class="h2h-title"><span>Tournament Name</span></td>
+              <td class="h2h-title"><span>R.</span></td>
+              <td class="h2h-title"><span>Flag</span></td>
+              <td class="h2h-title"><span>Name 1</span></td>
+              <td class="h2h-title"><span>Score</span></td>
+              <td class="h2h-title"><span>Name 2</span></td>
+              <td class="h2h-title"><span>Flag</span></td>
+              <td class="h2h-title"><span>old rating</span></td>
+              <td class="h2h-title"><span>old Exp</span></td>
+              <td class="h2h-title"><span>new rating</span></td>
+              <td class="h2h-title"><span>new Exp</span></td>
+            </tr>
+          </thead>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            <tr>
+              <td class="h2h-data"><span>5-10 Nov 2024</span></td>
+              <td class="h2h-data">
+                <span><a href="#">11th Merit Open</a></span>
+              </td>
+              <td class="h2h-data"><span>1</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>KEMAL RAGACA</span></td>
+              <td class="h2h-data"><span>10:5</span></td>
+              <td class="h2h-data"><span>APLACHINO RAGACA</span></td>
+              <td class="h2h-data"><span></span></td>
+              <td class="h2h-data"><span>1687.32</span></td>
+              <td class="h2h-data"><span>6438</span></td>
+              <td class="h2h-data"><span>1691.55</span></td>
+              <td class="h2h-data"><span>7447</span></td>
+            </tr>
+            
+          </table>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="achievements" id="achievements">
+        <table>
+          <tr>
+            <td class="achievement-data"><span>5-10 Nov 2024</span></td>
+            <td class="achievement-data"><span><a href="#">11th Merit International Open</a></span></td>
+            <td class="achievement-data"><span>Intermadiate, Main Event, 2nd consolation</span></td>
+            <td class="achievement-data"><span>Finalist</span></td>
+          </tr>
+          <tr>
+            <td class="achievement-data"><span>5-10 Nov 2024</span></td>
+            <td class="achievement-data"><span><a href="#">11th Merit International Open</a></span></td>
+            <td class="achievement-data"><span>Empty, SpeedGammon, Unknow</span></td>
+            <td class="achievement-data"><span>Semi-Finalist</span></td>
+          </tr>
+        </table>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Company Information</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul class="social-media">
+            <li><a href="#" class="social-icon facebook">Facebook</a></li>
+            <li><a href="#" class="social-icon twitter">Twitter</a></li>
+            <li><a href="#" class="social-icon wbgf">WBGF</a></li>
+            <li><a href="#" class="social-icon linkedin">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 [your country] Backgammon Federation . All rights
+          reserved.
+        </p>
+      </div>
+    </div>
+    <script src="func.js"></script>
+    <script src="pagination.js"></script>
+  </body>
+</html>
