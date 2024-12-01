@@ -1,22 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    function initializePagination(tableId, rowsPerPage, paginationContainerClass) {
-        const table = document.getElementById(tableId);
-        if (!table) {
-            console.error(`Table with ID '${tableId}' not found.`);
+    function initializePagination(containerId, rowsPerPage, paginationContainerClass) {
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error(`Container with ID '${containerId}' not found.`);
             return;
         }
 
-        // Get the header row and data rows
-        const headerRow = table.querySelector("thead");  // Header row
-        const rows = Array.from(table.querySelectorAll("tbody tr"));  // Data rows
-        const totalPages = Math.ceil(rows.length / rowsPerPage);
-        const paginationContainer = document.querySelector(paginationContainerClass);
+        // Check if it's a table or carousel
+        let items;
+        if (container.tagName.toLowerCase() === 'table') {
+            const rows = Array.from(container.querySelectorAll("tbody tr"));  // Get all table rows
+            items = rows;
+        } else if (container.classList.contains('carousel-inner')) {
+            items = Array.from(container.querySelectorAll(".news-item"));  // Get all carousel items
+        }
 
+        if (!items || items.length === 0) {
+            console.error("No items found to paginate.");
+            return;
+        }
+
+        const paginationContainer = document.querySelector(paginationContainerClass);
         if (!paginationContainer) {
             console.error(`Pagination container with class '${paginationContainerClass}' not found.`);
             return;
         }
 
+        const totalPages = Math.ceil(items.length / rowsPerPage);
         let currentPage = 1;
 
         // Function to create pagination buttons
@@ -43,14 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const start = (page - 1) * rowsPerPage;
             const end = start + rowsPerPage;
 
-            // Always show the header row
-            if (headerRow) {
-                headerRow.style.display = "";  // Make sure header is always visible
-            }
-
-            // Show or hide data rows based on pagination
-            rows.forEach((row, index) => {
-                row.style.display = index >= start && index < end ? "" : "none";
+            // Show or hide items based on pagination
+            items.forEach((item, index) => {
+                item.style.display = index >= start && index < end ? "" : "none";
             });
 
             updateActiveButton();
@@ -64,16 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Initialize the table view
-        if (rows.length > 0) {
-            createPaginationButtons();
-            showPage(currentPage);
-        } else {
-            paginationContainer.innerHTML = "<p>No rows to display</p>";
-        }
+        // Initialize the view for table or carousel
+        createPaginationButtons();
+        showPage(currentPage);
     }
 
-    // Initialize pagination for both tables
+    // Initialize pagination for both tables and carousel
     initializePagination("tournamentTable", 10, ".pagination-container");
     initializePagination("matchTable", 10, ".pagination-container-match");
+    initializePagination("carousel-inner", 10, ".pagination-container-carousel");
 });

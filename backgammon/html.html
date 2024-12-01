@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Repeat the photo divs as needed -->
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+        <div class="photo"></div>
+      </div>
+      <div class="pagination-container"></div>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(10, 50px); /* 10 vertical columns */
+  grid-auto-rows: 50px; /* 50px height per image */
+  gap: 5px;
+  height: 50px; /* Limit height */
+  overflow: hidden; /* Hide overflow */
+}
+
+.photo {
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.pagination-btn:hover {
+  background: #f0f0f0;
+}
+
+.pagination-btn.active {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+
+
+
+
+  </style>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+  function initializePagination(containerId, itemsPerPage, paginationContainerClass) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      console.error(`Container with ID '${containerId}' not found.`);
+      return;
+    }
+
+    const items = Array.from(container.children); // Select all child items
+    const paginationContainer = document.querySelector(paginationContainerClass);
+
+    if (!paginationContainer) {
+      console.error(`Pagination container with class '${paginationContainerClass}' not found.`);
+      return;
+    }
+
+    let currentPage = 1;
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+
+    function createPaginationButtons() {
+      paginationContainer.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.classList.add("pagination-btn");
+        if (i === currentPage) {
+          button.classList.add("active");
+        }
+        button.addEventListener("click", () => {
+          currentPage = i;
+          showPage(currentPage);
+        });
+        paginationContainer.appendChild(button);
+      }
+    }
+
+    function showPage(page) {
+      const start = (page - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+
+      items.forEach((item, index) => {
+        item.style.display = index >= start && index < end ? "" : "none";
+      });
+
+      updateActiveButton();
+    }
+
+    function updateActiveButton() {
+      const buttons = paginationContainer.querySelectorAll(".pagination-btn");
+      buttons.forEach((button, index) => {
+        button.classList.toggle("active", index + 1 === currentPage);
+      });
+    }
+
+    if (items.length > 0) {
+      createPaginationButtons();
+      showPage(currentPage);
+    } else {
+      paginationContainer.innerHTML = "<p>No items to display</p>";
+    }
+  }
+
+  // Initialize with 10 items per page (10 columns × 1 row)
+  initializePagination("photoGallery", 10, ".pagination-container");
+});
+
+  </script>
+</body>
+</html>
