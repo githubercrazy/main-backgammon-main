@@ -85,7 +85,7 @@
 }
 
 .navigation ul {
-  gap: 80px;
+  gap: 76px;
   display: flex;
 }
 
@@ -248,23 +248,13 @@
   margin-top: 10px;
 }
 
-.news-box-header-btn-main {
-  position: relative;
-  cursor: pointer;
-  max-width: 174px;
-  border: 1px solid black;
-  overflow: hidden;
-  padding: 2px;
-  background-color: #08573bc3;
-  z-index: 1;
-  flex: 1;
-  text-align: center;
-}
-
+.news-box-header-btn-main,
 .button-container-news .news-box-header-btn,
 .news-box-header-btn-toggle,
 .news-box-header-btn-achievements,
-.news-box-header-btn-gallery {
+.news-box-header-btn-gallery,
+.news-box-header-btn-video,
+.news-box-header-btn-rating {
   position: relative;
   cursor: pointer;
   max-width: 174px;
@@ -275,60 +265,23 @@
   z-index: 1;
   flex: 1;
   text-align: center;
-}
-.news-box-header-btn-gallery::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #08573b71;
-    transition: width 1s ease;
-    z-index: -1;
-  }
-.news-box-header-btn-gallery:hover::before {
-    width: 100%;
+  transition: background-color 0.3s ease; /* Transition background color smoothly */
 }
 
-.news-box-header-btn-achievements::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #08573b71;
-  transition: width 1s ease;
-  z-index: -1;
-}
-.button-container-news .news-box-header-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #08573b71;
-  transition: width 1s ease;
-  z-index: -1;
-}
-.news-box-header-btn-toggle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #08573b71;
-  transition: width 1s ease;
-  z-index: -1;
+/* New style for the green background */
+.news-box-header-btn.green-background,
+.news-box-header-btn-main.green-background {
+  background-color: green;
+  color: white;
 }
 
-.news-box-header-btn:hover::before,
-.news-box-header-btn-toggle:hover::before,
-.news-box-header-btn-achievements:hover::before {
-  width: 100%;
+/* Optional: Hover effect for non-selected buttons */
+.news-box-header-btn:hover,
+.news-box-header-btn-main:hover,
+.news-box-header-btn-toggle:hover,
+.news-box-header-btn-achievements:hover,
+.news-box-header-btn-gallery:hover {
+  background-color: #08573b71; /* Lighter shade of green on hover */
 }
 
 .news-box {
@@ -341,7 +294,6 @@
   flex-direction: column;
   gap: 50px;
 }
-
 
 table {
   width: 100%;
@@ -531,11 +483,11 @@ tr,
   width: 60px;
 }
 
-.pagination-container-match {
+.pagination-container-match,.pagination-container-rank  {
   display: flex;
   gap: 5px;
   justify-content: center;
-  margin-top: 10px;
+
 }
 
 .pagination-btn-match {
@@ -570,12 +522,20 @@ tr,
 .h2h-players {
   font-weight: bold;
   gap: 30px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   border: 1px solid rgb(47, 47, 47);
   display: flex;
-  justify-content: center;
+  align-items: center; /* Vertically center elements */
+  justify-content: center; /* Center player1, score, and player2 */
+  position: relative; /* Position toggle button independently */
 }
-
+.h2h-table {
+  transition: opacity 0.3s ease-in-out;
+}
+.h2h-table.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
 .h2h-list {
   padding: 5px;
   font-size: 18px;
@@ -610,6 +570,15 @@ tr,
   border-width: thin;
   flex: 1 1 auto;
 }
+.toggle-button {
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  right: 10px; /* Adjust as needed */
+}
+
+
+
 
 .h2h-data a:hover {
   color: #383ef5;
@@ -651,6 +620,10 @@ tr,
 .h2h-title:nth-child(12) {
   width: 60px;
 }
+
+
+
+
 
 .achievements {
   display: none;
@@ -721,69 +694,227 @@ tr,
   max-width: 433px;
 }
 
-.carousel-container {
-    display: flex;
-    flex-direction: column;  /* Stack items vertically */
-    align-items: center;
-    overflow: hidden;
-    border: 2px #06664489 solid;
-    border-radius: 5px;
-    max-width: 1024px;
-    position: relative;
-  }
-  
-  .carousel {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    flex: 1;  /* This allows carousel to take available space */
-  }
-  
-  .carousel-inner {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 items per row */
-    grid-auto-rows: 150px; /* Fixed height for rows */
-    gap: 5px; /* Space between items */
-    width: 100%;
-  }
-  
-  .news-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-  }
-  
-  .news-item img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .news-item span {
-    font-weight: bold;
-  }
-  
-  .news-viewmore {
-    display: flex;
-  }
-  
-  .news-item span,
-  .news-item a {
-    font-size: 16px;
-  }
-  
-  /* Adjusting pagination position */
-  .pagination-container-carousel {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;  /* Adjust this margin to push pagination down */
-    gap: 10px;  /* Space between pagination buttons */
-    flex-wrap: wrap;
-    margin-bottom: 20px; /* Add some bottom margin if needed */
-  }
-  
+.photo-gallery {
+  display: none;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  overflow: hidden;
+  border: 2px #06664489 solid;
+  border-radius: 5px;
+  max-width: 1024px;
+  position: relative;
+}
+
+.gallery {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex: 1; /* This allows carousel to take available space */
+}
+
+.gallery-inner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 5px; /* Space between items */
+  width: 100%;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 150px;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item span {
+  font-weight: bold;
+}
+
+.gallery-item span,
+.gallery-item a {
+  font-size: 16px;
+}
+.gallery-viewmore {
+  display: flex;
+}
+.gallery-item span,
+.gallery-item a {
+  font-size: 16px;
+}
+.gallery-item span {
+  font-weight: bold;
+}
+
+.video-gallery {
+  display: none;
+  overflow: hidden;
+  border: 2px #06664489 solid;
+  border-radius: 5px;
+  max-width: 1024px;
+  position: relative;
+}
+
+.video {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  flex: 1; /* This allows carousel to take available space */
+}
+
+.video-inner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 5px; /* Space between items */
+  width: 100%;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 150px;
+}
+
+.video-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-item span {
+  font-weight: bold;
+}
+
+.video-item span,
+.video-item a {
+  font-size: 16px;
+}
+.video-viewmore {
+  display: flex;
+}
+.video-item span,
+.video-item a {
+  font-size: 16px;
+}
+.video-item span {
+  font-weight: bold;
+}
+.pagination-container-video {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
+}
+/* Adjusting pagination position */
+.pagination-container-gallery {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust this margin to push pagination down */
+  gap: 10px; /* Space between pagination buttons */
+  flex-wrap: wrap;
+  margin-bottom: 20px; /* Add some bottom margin if needed */
+}
+
+.ranking {
+  display: none;
+}
+#rankTable {
+  margin-top: 15px;
+}
+#rankTable:nth-child(2) {
+  margin-bottom: 15px;
+}
+.ranking-list p {
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.ranking-title,
+.ranking-data {
+  padding: 0 5px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid black;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.ranking-data {
+  font-size: 14px;
+}
+.ranking-title {
+  cursor: default;
+  border: 1px solid black;
+  border-width: thin;
+  flex: 1 1 auto;
+}
+
+.ranking-data a:hover {
+  color: #383ef5;
+}
+
+.ranking-title:nth-child(1),
+.ranking-title:nth-child(2),
+.ranking-title:nth-child(3),
+.ranking-title:nth-child(4),
+.ranking-title:nth-child(5) {
+  font-weight: bold;
+}
+
+.filters {
+  justify-content: space-between;
+  display: flex;
+  max-width: 1024px;
+}
+.filter-btn {
+  max-height: 30px;
+  text-align: center;
+  text-wrap: nowrap;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 10px 15px;
+  background-color: #08573c;
+  color: white;
+  border: 2px solid #08573c;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #066129; /* Darker shade on hover */
+  border-color: #066129; /* Darker border on hover */
+}
+
+.filter-btn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(8, 87, 60, 0.5); /* Custom focus shadow */
+}
+
+
+
+.match-rank{
+  font-weight: bold;
+}
 
 .footer-container {
   background-color: #f1f1f1;
