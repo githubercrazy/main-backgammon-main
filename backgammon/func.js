@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Select the buttons
+  
+
+
+  // rating.html
   const buttonH2H = document.querySelector(".news-box-header-btn-toggle");
   const buttonAchievements = document.querySelector(
     ".news-box-header-btn-achievements"
@@ -17,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const videoDivElement = document.getElementById("video");
   const rankElement = document.getElementById("rank");
   // Function to toggle visibility for H2H
+
 
   function toggleRank() {
     if (
